@@ -13,7 +13,7 @@ class QualificationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
+          iconTheme: IconThemeData(color: AppConstant.appTextColor),
         backgroundColor: AppConstant.appSecondaryColor,
         title: Text('Qualification',style:TextStyle(color:AppConstant.appTextColor,fontFamily: AppConstant.appFontFamily))
 
@@ -78,6 +78,7 @@ class QualificationWidget extends StatelessWidget {
                               child: Padding(
                                 padding:  EdgeInsets.all(8.0),
                                 child: Card(
+                                  color: Colors.greenAccent,
                                   elevation: 10,
                                   child: Column(
                                     children: [
@@ -87,7 +88,7 @@ class QualificationWidget extends StatelessWidget {
                                           CircleAvatar(
 
                                             radius: 40.0,
-                                            backgroundColor: Colors.white,
+                                            backgroundColor: Colors.greenAccent,
                                             child: Icon(Icons.school),
                                           ),
                                           Text(" ${qualificatioModel.qdegree}",style: TextStyle(fontFamily: AppConstant.appFontFamily,fontWeight: FontWeight.bold),),

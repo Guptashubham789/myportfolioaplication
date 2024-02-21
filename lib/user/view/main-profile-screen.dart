@@ -18,8 +18,9 @@ class _MainProfileScreenState extends State<MainProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: AppConstant.appTextColor),
         backgroundColor: AppConstant.appSecondaryColor,
-        title: Center(child: const Text('Shubham Gupta',style:TextStyle(color:AppConstant.appTextColor,fontFamily: AppConstant.appFontFamily))),
+        title:  Text('Shubham Gupta',style:TextStyle(color:AppConstant.appTextColor,fontFamily: AppConstant.appFontFamily)),
 
       ),
        drawer: DrawerWidget(),
