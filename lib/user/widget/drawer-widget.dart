@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:portfolio/user/view/contacts-screen.dart';
 import 'package:portfolio/user/view/main-profile-screen.dart';
+import 'package:portfolio/user/widget/experience-widget.dart';
+import 'package:portfolio/user/widget/my-project-widget.dart';
 import 'package:portfolio/user/widget/profile-widget.dart';
 import 'package:portfolio/user/widget/qualification-widget.dart';
+import 'package:portfolio/user/widget/services-widget.dart';
 import 'package:portfolio/user/widget/skills-widget.dart';
 
 import '../constant/app-constant.dart';
@@ -56,7 +60,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             },
             titleAlignment: ListTileTitleAlignment.center,
             title: Text('My Qualification',style: TextStyle(color: AppConstant.appTextColor),),
-            leading: Icon(Icons.book,color: AppConstant.appTextColor,),
+            leading: Icon(Icons.school,color: AppConstant.appTextColor,),
             trailing: Icon(Icons.arrow_forward,color: AppConstant.appTextColor,),
           ),
         ),
@@ -68,7 +72,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             },
             titleAlignment: ListTileTitleAlignment.center,
             title: Text('My Skills',style: TextStyle(color: AppConstant.appTextColor),),
-            leading: Icon(Icons.book,color: AppConstant.appTextColor,),
+            leading: Icon(Icons.star,color: AppConstant.appTextColor,),
             trailing: Icon(Icons.arrow_forward,color: AppConstant.appTextColor,),
           ),
         ),
@@ -76,7 +80,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: ListTile(
             onTap: (){
-              Get.to(()=>MainProfileScreen());
+              Get.to(()=>ExperienceScreen());
             },
             titleAlignment: ListTileTitleAlignment.center,
             title: Text('Experience',style: TextStyle(color: AppConstant.appTextColor),),
@@ -88,7 +92,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: ListTile(
             onTap: (){
-              Get.to(()=>SkillsScreen());
+              Get.to(()=>ServicesScreen());
             },
             titleAlignment: ListTileTitleAlignment.center,
             title: Text('Services',style: TextStyle(color: AppConstant.appTextColor),),
@@ -100,7 +104,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: ListTile(
             onTap: (){
-              Get.to(()=>SkillsScreen());
+              Get.to(()=>MyProjectScreen());
             },
             titleAlignment: ListTileTitleAlignment.center,
             title: Text('Our Project',style: TextStyle(color: AppConstant.appTextColor),),
@@ -112,7 +116,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: ListTile(
             onTap: (){
-              Get.to(()=>SkillsScreen());
+              Get.to(()=>ContactsScreen());
             },
             titleAlignment: ListTileTitleAlignment.center,
             title: Text('Contacts',style: TextStyle(color: AppConstant.appTextColor),),
