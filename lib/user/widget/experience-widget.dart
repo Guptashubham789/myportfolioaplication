@@ -92,7 +92,7 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
                                       ],
                                     ),
 
-                                    Text("Technology : ${skillsModel.learnTechnology}",style: TextStyle(fontSize: 10,),maxLines: 2,textScaleFactor: 3,),
+                                    Text("Technology : ${skillsModel.learnTechnology}",style: TextStyle(fontSize: 10,),maxLines: 1,textScaleFactor: 1,),
 
                                   ],
                                 ),
