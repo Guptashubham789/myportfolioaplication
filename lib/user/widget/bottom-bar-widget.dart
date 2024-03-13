@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/user/view/main-profile-screen.dart';
 import 'package:portfolio/user/widget/qualification-widget.dart';
 
-
-
-
 class BottomBarScreen extends StatefulWidget {
   const BottomBarScreen({Key? key}) : super(key: key);
 

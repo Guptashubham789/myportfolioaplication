@@ -25,94 +25,96 @@ class _ContactsScreenState extends State<ContactsScreen> {
         iconTheme: IconThemeData(color: AppConstant.appTextColor),
         title: Text('Contacts',style: TextStyle(color: AppConstant.appTextColor,fontFamily: AppConstant.appFontFamily),),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Container(
-          child: Column(
-            children: [
-              Center(
-                child: Text('GET IN TOUCH'),
-              ),
-              Divider(),
-              Row(
-                children: [
-                  Container(
-                    height: 75,
-                    width: 75,
-                    child: Card(
-
-                      // color: AppConstant.appSecondaryColor,
-                        elevation: 14,
-                        child: Image.asset('assets/img/shubham.png',
-                          height: 150,
-                          width: 300,
-                        )),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text('Shubham Gupta',style: TextStyle(fontFamily: AppConstant.appFontFamily),maxLines: 4,),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Row(
-                children: [
-                  Container(
-                    height: 75,
-                    width: 75,
-                    child: Card(
-                        color: AppConstant.appSecondaryColor,
-                        elevation: 14,
-                        child: Icon(Icons.phone)),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text('+91-6393539704,',style: TextStyle(fontFamily: AppConstant.appFontFamily),maxLines: 4,),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Row(
-                children: [
-                  Container(
-                    height: 75,
-                    width: 75,
-                    child: Card(
-                        color: AppConstant.appSecondaryColor,
-                        elevation: 14,
-                        child: Icon(Icons.location_on)),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text('Kerakat Jaunpur',style: TextStyle(fontFamily: AppConstant.appFontFamily),maxLines: 4,),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Material(
-                child: Container(
-                  width: Get.width/2.0,
-                  height: Get.height/18,
-                  decoration: BoxDecoration(
-                      color: AppConstant.appSecondaryColor,
-                      borderRadius: BorderRadius.circular(10.0)
-                  ),
-                  child: TextButton(
-                      onPressed: (){
-                        showCustomBottomSheet();
-                      },
-                      child: Text('SEND MESSAGE',
-                        style: TextStyle(color: AppConstant.appTextColor,fontFamily: AppConstant.appFontFamily),)
-                  ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Container(
+            child: Column(
+              children: [
+                Center(
+                  child: Text('GET IN TOUCH'),
                 ),
-              )
-            ],
+                Divider(),
+                Row(
+                  children: [
+                    Container(
+                      height: 75,
+                      width: 75,
+                      child: Card(
+
+                        // color: AppConstant.appSecondaryColor,
+                          elevation: 14,
+                          child: Image.asset('assets/img/shubham.png',
+                            height: 150,
+                            width: 300,
+                          )),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text('Shubham Gupta',style: TextStyle(fontFamily: AppConstant.appFontFamily),maxLines: 4,),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  children: [
+                    Container(
+                      height: 75,
+                      width: 75,
+                      child: Card(
+                          color: AppConstant.appSecondaryColor,
+                          elevation: 14,
+                          child: Icon(Icons.phone)),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text('+91-6393539704,',style: TextStyle(fontFamily: AppConstant.appFontFamily),maxLines: 4,),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  children: [
+                    Container(
+                      height: 75,
+                      width: 75,
+                      child: Card(
+                          color: AppConstant.appSecondaryColor,
+                          elevation: 14,
+                          child: Icon(Icons.location_on)),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text('Kerakat Jaunpur',style: TextStyle(fontFamily: AppConstant.appFontFamily),maxLines: 4,),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Material(
+                  child: Container(
+                    width: Get.width/2.0,
+                    height: Get.height/18,
+                    decoration: BoxDecoration(
+                        color: AppConstant.appSecondaryColor,
+                        borderRadius: BorderRadius.circular(10.0)
+                    ),
+                    child: TextButton(
+                        onPressed: (){
+                          showCustomBottomSheet();
+                        },
+                        child: Text('SEND MESSAGE',
+                          style: TextStyle(color: AppConstant.appTextColor,fontFamily: AppConstant.appFontFamily),)
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

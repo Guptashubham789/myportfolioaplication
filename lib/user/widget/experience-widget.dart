@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -29,8 +30,23 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
         child: Column(
           children: [
             StreamBuilder<QuerySnapshot<Map<String,dynamic>>>(
-                stream: FirebaseFirestore.instance.collection('workExperience').snapshots()!,
+                stream: FirebaseFirestore.instance.collection('experience').snapshots()!,
                 builder: (BuildContext context,AsyncSnapshot<QuerySnapshot> snapshot){
+                  //agr koi error hai hmare snapshot me to yh condition chale
+                  if(snapshot.hasError){
+                    return Center(
+                      child: Text('Error'),
+                    );
+                  }
+                  //agr waiting me h to kya return kro
+                  if(snapshot.connectionState==ConnectionState.waiting){
+                    return Container(
+                      height: Get.height/4,
+                      child: Center(
+                        child: CupertinoActivityIndicator(),
+                      ),
+                    );
+                  }
                   return GridView.builder(
                       itemCount: snapshot.data!.docs.length,
                       shrinkWrap: true,
@@ -39,7 +55,7 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
                           crossAxisCount: 1,
                           mainAxisSpacing: 2,
                           crossAxisSpacing: 1,
-                          childAspectRatio: 2.50
+                          childAspectRatio: 2.10
                       ),
                       itemBuilder: (context,index){
                         final skillsData=snapshot.data!.docs[index];
@@ -55,17 +71,31 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
                         return Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
-                            height: Get.height/2,
-                            width: Get.width/1,
                             // color: Colors.greenAccent,
                             child: Card(
-                              color: Colors.greenAccent,
+                              //color: Colors.greenAccent,
                               elevation: 10,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: [
-                                  Text(skillsModel.cname,style: TextStyle(fontFamily: AppConstant.appFontFamily,fontWeight: FontWeight.bold,fontSize: 18,),maxLines: 1,textScaleFactor: 1,),
-                                ],
+                              child: Padding(
+                                padding: const EdgeInsets.all(18.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(skillsModel.cname,style: TextStyle(fontFamily: AppConstant.appFontFamily,fontSize: 18,),maxLines: 1,textScaleFactor: 1,),
+                                    SizedBox(height: 10,),
+                                    Text(skillsModel.cposition,style: TextStyle(fontSize: 14,),maxLines: 1,textScaleFactor: 1,),
+                                    SizedBox(height: 15,),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text("Start Date : ${skillsModel.startDate}",style: TextStyle(fontSize: 12,),maxLines: 1,textScaleFactor: 1,),
+                                        Text("End Date : ${skillsModel.endDate}",style: TextStyle(fontSize: 10,),maxLines: 1,textScaleFactor: 1,),
+                                      ],
+                                    ),
+
+                                    Text("Technology : ${skillsModel.learnTechnology}",style: TextStyle(fontSize: 10,),maxLines: 2,textScaleFactor: 3,),
+
+                                  ],
+                                ),
                               ),
                             ),
                           ),

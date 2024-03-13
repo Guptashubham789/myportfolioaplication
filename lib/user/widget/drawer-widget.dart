@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:lottie/lottie.dart';
 import 'package:portfolio/user/view/contacts-screen.dart';
 import 'package:portfolio/user/view/main-profile-screen.dart';
 import 'package:portfolio/user/widget/experience-widget.dart';
@@ -11,6 +12,7 @@ import 'package:portfolio/user/widget/services-widget.dart';
 import 'package:portfolio/user/widget/skills-widget.dart';
 
 import '../constant/app-constant.dart';
+import '../view/follow-screen.dart';
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({super.key});
 
@@ -33,16 +35,12 @@ class _DrawerWidgetState extends State<DrawerWidget> {
       runSpacing: 10,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 25.0),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 40.0),
           child: ListTile(
             titleAlignment: ListTileTitleAlignment.center,
             title: Text('Shubham Gupta',style: TextStyle(color: AppConstant.appTextColor),),
             subtitle: Text('Version 1.0.1',style: TextStyle(color: AppConstant.appTextColor),),
-            leading: CircleAvatar(
-              radius: 50.0,
-              backgroundColor: AppConstant.appSecondaryColor,
-              child: Image.asset('assets/img/shubham.png',height: 50,),
-            ),
+
           ),
         ),
         Divider(
@@ -128,7 +126,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: ListTile(
             onTap: (){
-              Get.to(()=>SkillsScreen());
+              Get.to(()=>FollowScreen());
             },
             titleAlignment: ListTileTitleAlignment.center,
             title: Text('Follow Me',style: TextStyle(color: AppConstant.appTextColor),),

@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:lottie/lottie.dart';
 import 'package:portfolio/user/model/skills-model.dart';
 
 import '../constant/app-constant.dart';
@@ -26,9 +28,25 @@ class _SkillsScreenState extends State<SkillsScreen> {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
+
             StreamBuilder(
               stream: FirebaseFirestore.instance.collection('skills').snapshots(),
                 builder: (BuildContext context,AsyncSnapshot<QuerySnapshot> snapshot){
+                  //agr koi error hai hmare snapshot me to yh condition chale
+                  if(snapshot.hasError){
+                    return Center(
+                      child: Text('Error'),
+                    );
+                  }
+                  //agr waiting me h to kya return kro
+                  if(snapshot.connectionState==ConnectionState.waiting){
+                    return Container(
+                      height: Get.height/4,
+                      child: Center(
+                        child: CupertinoActivityIndicator(),
+                      ),
+                    );
+                  }
                   return GridView.builder(
                       itemCount: snapshot.data!.docs.length,
                       shrinkWrap: true,
@@ -53,12 +71,12 @@ class _SkillsScreenState extends State<SkillsScreen> {
                             width: Get.width/2,
                             // color: Colors.greenAccent,
                             child: Card(
-                              color: Colors.greenAccent,
+                              color: Colors.white,
                               elevation: 10,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
-                                  Text(skillsModel.language,style: TextStyle(fontFamily: AppConstant.appFontFamily,fontWeight: FontWeight.bold,fontSize: 18,),maxLines: 1,textScaleFactor: 1,),
+                                  Text(skillsModel.language,style: TextStyle(fontFamily: AppConstant.appFontFamily,fontWeight: FontWeight.bold,fontSize: 16,),maxLines: 1,textScaleFactor: 1,),
                                   Text(skillsModel.Knowledge)
                                 ],
                               ),
